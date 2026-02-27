@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Biblioteca del Tiempo</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./style/EstilosBiblioteca.css">
 </head>
 <body>
 
-    <!-- Capa de transición entre escenas -->
+   
     <div id="transicion"></div>
 
-    <!-- Timer (cuenta atrás, visible en escenas 5, 6 y 7) -->
+  
     <div id="timer">
         <div class="label-timer">Tiempo restante</div>
         <div class="numeros" id="timer-numeros">3:00</div>
     </div>
 
 
-    <!-- =====================================================
-         ESCENA 0 - PANTALLA DE TÍTULO
-         ===================================================== -->
+    <!--  ESCENA 0 - PANTALLA DE TÍTULO-->
     <div id="escena-titulo" class="escena activa">
-        <div class="fondo" style="background-image: url('biblioteca.jpeg')"></div>
+        <div class="fondo" style="background-image: url('/Img/biblioteca.jpeg')"></div>
         <div class="capa-oscura"></div>
 
         <div class="titulo-contenido">
@@ -34,20 +32,16 @@
     </div>
 
 
-    <!-- =====================================================
-         ESCENA 1 - EL SUEÑO (abrir los ojos)
-         ===================================================== -->
+    <!-- ESCENA 1 - EL SUEÑO (abrir los ojos)-->
     <div id="escena-1" class="escena">
 
 
 
-        <!-- El fondo es la imagen completa. Cambia según el estado de los ojos -->
 
         <div class="fondo fondo-sueno" id="fondo-escena1"></div>
 
 
 
-        <!-- Zona clickable en la mitad derecha de la imagen (donde está la cabeza) -->
 
         <div class="zona-ojos" id="zona-ojos" onclick="abrirOjo()">
 
@@ -67,16 +61,14 @@
 
     </div>
 
-    <!-- =====================================================
-         ESCENA 2 - LA OSCURIDAD (encender la lámpara)
-         ===================================================== -->
+    <!--ESCENA 2 - LA OSCURIDAD (encender la lámpara) -->
     <div id="escena-2" class="escena">
-        <div class="fondo" style="background-image: url('bibliotecaOscura.jpeg');"></div>
+        <div class="fondo" style="background-image: url('/Img/bibliotecaOscura.jpeg');"></div>
 
-        <!-- Capa negra que se levanta al encender la luz -->
+       
         <div id="oscuridad"></div>
 
-        <!-- Zona donde está la lámpara -->
+   
         <div class="zona-lampara" onclick="encenderLampara()">
             <div class="punto-brillante"></div>
         </div>
@@ -88,11 +80,9 @@
     </div>
 
 
-    <!-- =====================================================
-         ESCENA 3 - BIBLIOTECA ILUMINADA
-         ===================================================== -->
+    <!--ESCENA 3 - BIBLIOTECA ILUMINADA -->
     <div id="escena-3" class="escena" onclick="irA('escena-4')">
-        <div class="fondo" style="background-image: url('biblioteca.jpeg');"></div>
+        <div class="fondo" style="background-image: url('/Img/biblioteca.jpeg');"></div>
         <div class="capa-oscura"></div>
 
         <div class="caja-dialogo">
@@ -102,11 +92,9 @@
     </div>
 
 
-    <!-- =====================================================
-         ESCENA 4 - EL FANTASMA (elegir respuesta)
-         ===================================================== -->
+    <!-- ESCENA 4 - EL FANTASMA (elegir respuesta)-->
     <div id="escena-4" class="escena">
-        <div class="fondo" style="background-image: url('bibliotecaFantasma.jpeg');"></div>
+        <div class="fondo" style="background-image: url('/Img/bibliotecaFantasma.jpeg');"></div>
         <div class="capa-oscura"></div>
 
         <div class="caja-dialogo" id="dialogo-escena4">
@@ -116,11 +104,9 @@
     </div>
 
 
-    <!-- =====================================================
-         ESCENA 5 - EL RELOJ (comienza la cuenta atrás)
-         ===================================================== -->
+    <!--  ESCENA 5 - EL RELOJ (comienza la cuenta atrás) -->
     <div id="escena-5" class="escena" onclick="avanzarEscena5()">
-        <div class="fondo" style="background-image: url('reloj.jpeg');"></div>
+        <div class="fondo" style="background-image: url('/Img/reloj.jpeg');"></div>
         <div class="capa-oscura"></div>
 
         <div class="caja-dialogo">
@@ -130,14 +116,12 @@
     </div>
 
 
-    <!-- =====================================================
-         ESCENA 6 - LA ESTANTERÍA (colocar el libro)
-         ===================================================== -->
+    <!-- ESCENA 6 - LA ESTANTERÍA (colocar el libro) -->
     <div id="escena-6" class="escena">
-        <div class="fondo" id="fondo-estanteria" style="background-image: url('hueco.jpeg');"></div>
+        <div class="fondo" id="fondo-estanteria" style="background-image: url('/Img/estanteria.jpg');"></div>
         <div class="capa-oscura"></div>
 
-        <!-- Zona clickable donde está el hueco -->
+      
         <div class="zona-hueco" onclick="colocarLibro()">
             
         </div>
@@ -149,14 +133,12 @@
     </div>
 
 
-    <!-- =====================================================
-         ESCENA 7 - LA LLAVE (encontrarla a tiempo)
-         ===================================================== -->
+    <!-- ESCENA 7 - LA LLAVE (encontrarla a tiempo)-->
     <div id="escena-7" class="escena">
-        <div class="fondo" style="background-image: url('bibliotecaLlave.png');"></div>
+        <div class="fondo" style="background-image: url('/Img/bibliotecaLlave.png');"></div>
         <div class="capa-oscura"></div>
 
-        <!-- Zona donde está la llave -->
+        
         <div class="zona-llave" onclick="cogerLlave()">
             <div class="punto-brillante"></div>
             <div class="tooltip"></div>
@@ -169,11 +151,9 @@
     </div>
 
 
-    <!-- =====================================================
-         FINAL 1 - ENCERRADO POR TODA LA ETERNIDAD
-         ===================================================== -->
+    <!-- FINAL 1 - ENCERRADO POR TODA LA ETERNIDAD-->
     <div id="final-1" class="escena" onclick="irA('escena-titulo')">
-        <div class="fondo" style="background-image: url('bibliotecaOscura.jpeg');"></div>
+        <div class="fondo" style="background-image: url('/Img/bibliotecaOscura.jpeg');"></div>
         <div class="capa-oscura"></div>
 
         <div class="final-contenido final-malo">
@@ -184,11 +164,9 @@
     </div>
 
 
-    <!-- =====================================================
-         FINAL 2 - LA ROSA MARCHITA
-         ===================================================== -->
+    <!-- FINAL 2 - LA ROSA MARCHITA -->
     <div id="final-2" class="escena" onclick="irA('escena-titulo')">
-        <div class="fondo" style="background-image: url('finalRosaMarchita.jpeg');"></div>
+        <div class="fondo" style="background-image: url('/Img/finalRosaMarchita.jpeg');"></div>
         <div class="capa-oscura"></div>
 
         <div class="final-contenido final-medio">
@@ -199,21 +177,19 @@
     </div>
 
 
-    <!-- =====================================================
-         FINAL VERDADERO - ENTRE LOS SUEÑOS Y LA REALIDAD
-         ===================================================== -->
+    <!--FINAL VERDADERO - ENTRE LOS SUEÑOS Y LA REALIDAD-->
     <div id="final-verdadero" class="escena">
-        <div class="fondo" style="background-image: url('finalVerdadero.jpg');"></div>
+        <div class="fondo" style="background-image: url('/Img/finalVerdadero.jpg');"></div>
 
         <div class="final-contenido final-bueno">
             <h2>Entre los sueños<br>y la realidad</h2>
             <p id="texto-final-verdadero">Al introducir la llave en la cerradura, la vieja puerta parece abrirse sola. Los rayos del sol inundan la estancia, que comienza a desvanecerse ante tus ojos. El aire puro y las primeras luces de la mañana se filtran entre los árboles del bosque.</p>
             <p class="pista" id="pista-final-verdadero" style="text-align:center;">Click para continuar →</p>
         </div>
-        <button class="boton boton-reiniciar" onclick="reiniciarJuego()">Volver al principio</button> <!--No funciona, miratelo-->
+        <button class="boton boton-reiniciar" onclick="reiniciarJuego()">Volver al principio</button> 
     </div>
 
 
-    <script src="game.js"></script>
+    <script src="./js/LaBiblioteca.js"></script>
 </body>
 </html>
