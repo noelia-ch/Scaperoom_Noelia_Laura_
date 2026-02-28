@@ -1,0 +1,484 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+    background-color: black;
+    color: #f0e6c8;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.escena {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1900px;
+    height: 1000px;
+}
+
+/* la escena que se muestra */
+.escena.activa {
+    display: block;
+}
+
+/* background de la escena */
+.fondo {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+
+.fondo-sueno {
+
+    background-image: url('../imagenes/sueñoOjosCerrados.jpeg');
+
+    background-size: contain;
+
+    background-position: center;
+
+    transition: background-image 0.1s;
+
+}
+
+
+
+.zona-ojos {
+
+    position: absolute;
+    top: 60px;
+    right: 500px;
+    width: 180px;
+    height: 70px;
+    cursor: pointer;
+    z-index: 10;
+
+}
+
+
+
+.zona-ojos .tooltip {
+
+    display: none;
+
+    position: absolute;
+
+    bottom: 5px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: rgba(0, 0, 0, 0.85);
+
+    border: 1px solid #a07830;
+
+    color: #f0e6c8;
+
+    font-size: 0.75rem;
+
+    padding: 4px 10px;
+
+    white-space: nowrap;
+
+}
+
+
+
+.zona-ojos:hover .tooltip {
+
+    display: block;
+
+}
+
+
+.capa-oscura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* textos y dialogos */
+
+.caja-dialogo {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 700px;
+    background-color: rgba(10, 5, 0, 0.88);
+    border: 2px solid #a07830;
+    border-top: 3px solid #c8a050;
+    padding: 20px 25px;
+    z-index: 10;
+}
+
+.caja-dialogo p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 0 10px 0;
+}
+
+.caja-dialogo .pista {
+    font-size: 0.8rem;
+    color: #a07830;
+    letter-spacing: 0.1em;
+    text-align: right;
+    margin: 0;
+    animation: parpadeo 2s infinite;
+}
+
+/* botones aquí */
+
+.boton {
+    display: inline-block;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    padding: 12px 30px;
+    border: 2px solid #a07830;
+    background-color: rgba(10, 5, 0, 0.85);
+    color: #f0e6c8;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    transition: background-color 0.3s, border-color 0.3s;
+    text-decoration: none;
+}
+
+.boton:hover {
+    background-color: rgba(160, 120, 48, 0.3);
+    border-color: #f0e6c8;
+}
+
+
+.boton-comenzar {
+    font-size: 1.1rem;
+    padding: 15px 45px;
+    border-color: #c8a050;
+    margin-top: 30px;
+}
+
+
+.botones-eleccion {
+    display: flex;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+.botones-eleccion .boton {
+    flex: 1;
+    text-align: center;
+    font-style: italic;
+}
+
+.boton-miedo {
+    border-color: #a04040;
+    color: #ffaaaa;
+}
+
+.boton-miedo:hover {
+    background-color: rgba(160, 64, 64, 0.3);
+}
+
+.boton-aceptar {
+    border-color: #40a060;
+    color: #aaffcc;
+}
+
+.boton-aceptar:hover {
+    background-color: rgba(64, 160, 96, 0.3);
+}
+
+
+.boton-reiniciar {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.boton-reiniciar-final {
+    display: none;
+    text-align: center;
+    width: 200px;
+    top: 650px;
+    position: absolute;
+    left: 850px;
+}
+
+.boton-reiniciar-final:hover {
+    background-color: rgba(112, 74, 16, 0.733);
+}
+
+.boton-musica {
+
+    border-color: rgb(161, 119, 56);
+    background-color: #573d07a2;
+    font-size: large;
+    border-radius: 20px;
+    color: rgba(214, 152, 38, 0.753);
+
+    position: absolute;
+
+    top: 70px;
+
+    left: 550px;
+
+    width: 150px;
+
+    height: 80px;
+
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+
+    z-index: 10;
+
+}
+
+.boton-musica:hover {
+
+    background-color: rgba(49, 15, 65, 0.3);
+
+}
+
+
+/*titulos de la pantalla de inicio*/
+.titulo-contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.titulo-contenido h1 {
+    font-size: 3.5rem;
+    color: #f0e6c8;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+.titulo-contenido .autores {
+    font-size: 0.85rem;
+    color: #4d3a19;
+    background-color: #a07830;
+    margin-top: 40px;
+    letter-spacing: 0.15em;
+}
+
+/* ojos escena 1 */
+
+.contenedor-ojos {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 60px;
+    z-index: 10;
+}
+
+.ojo {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.ojo:hover {
+    transform: scale(1.08);
+}
+
+.ojo img {
+    width: 150px;
+    filter: drop-shadow(0 0 12px rgba(106, 90, 205, 0.8));
+}
+
+.ojo.abierto img {
+    filter: drop-shadow(0 0 20px rgba(180, 160, 255, 1)) brightness(1.2);
+}
+
+/* lapara escena 2*/
+.zona-lampara {
+    position: absolute;
+
+    top: 600px;
+    left: 900px;
+    width: 70px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Capa oscura*/
+#oscuridad {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.93);
+    z-index: 5;
+    transition: background-color 2s ease;
+}
+
+#oscuridad.encendida {
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+
+
+/* hueco escena 6*/
+
+.zona-hueco {
+    position: absolute;
+    top: 700px;
+    left: 670px;
+    width: 45px;
+    height: 250px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+    transition: border-color 0.3s;
+}
+
+/* llave escena 7*/
+
+.zona-llave {
+    position: absolute;
+    top: 650px;
+    left: 1440px;
+    width: 55px;
+    height: 45px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* temporizador*/
+
+#timer {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20;
+    display: none;
+}
+
+#timer .label-timer {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: #a07830;
+    text-transform: uppercase;
+}
+
+#timer .numeros {
+    font-size: 2rem;
+    font-family: Georgia, serif;
+    color: #f0e6c8;
+    letter-spacing: 0.1em;
+}
+
+#timer .numeros.aviso {
+    color: #ff8c00;
+}
+
+#timer .numeros.peligro {
+    color: #ff3030;
+
+}
+
+
+/* finales */
+
+.final-contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.final-contenido h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.final-malo h2 {
+    color: #c85050;
+    text-shadow: 0 0 20px rgba(200, 80, 80, 0.5);
+}
+
+.final-medio h2 {
+    color: #9070b0;
+    text-shadow: 0 0 20px rgba(144, 112, 176, 0.5);
+}
+
+.final-bueno h2 {
+    color: #38551b;
+    text-shadow: 0 0 20px rgba(120, 200, 80, 0.5);
+}
+
+.texto-final-verdadero {
+    color: #193d25;
+    background-color: rgba(83, 41, 5, 0.93);
+}
+
+.final-contenido p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: #d0c0a0;
+}
+
+
+
+#transicion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+#transicion.activa {
+    opacity: 1;
+    pointer-events: all;
+}
